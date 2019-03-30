@@ -8,40 +8,15 @@
                 <div class="card-header">
                     <div class="d-flex align-item-center">
                         <h2>Edit Question</h2>
-                        <div class="mx-auto">
+                        <div class="ml-auto">
                             <a href="{{ route('questions.index') }}" class="btn btn-outline-secondary">Back To All Question</a>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('questions.store') }}" method="post">
+                    <form action="{{ route('questions.update', $question->id) }}" method="post">
+                        {{ method_field('PUT') }}
                         @include ("questions._form", ['buttonText' => "Update Question"])
-                        @csrf
-                   <div class="form-group">
-                    <label for="question-title">Question Title</label>
-                    <input type="text" name="title" value="{{ old('title') }}" id="question-title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}">
-
-                    @if ($errors->has('title'))
-                    <div class="invalid-feedback">
-                        <strong>{{ $errors->first('title') }}</strong>
-                    </div>
-                    @endif
-
-                </div>
-                <div class="form-group">
-                    <label for="question-body">Explain you question</label>
-                    <textarea name="body" id="question-body" rows="10" class="form-control {{ $errors->has('body') ? 'is-invalid' : '' }}"></textarea>
-
-                    @if ($errors->has('body'))
-                    <div class="invalid-feedback">
-                        <strong>{{ $errors->first('body') }}</strong>
-                    </div>
-                    @endif
-
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-outline-primary btn-lg">Ask This Question</button>
-                        </div>
                         </form>                   
                         </div>
                 </div>

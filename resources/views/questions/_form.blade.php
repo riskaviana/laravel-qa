@@ -1,20 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
-                    <div class="d-flex align-item-center">
-                        <h2>All Questions</h2>
-                        <div class="mx-auto">
-                            <a href="{{ route('questions.index') }}" class="btn btn-outline-secondary">Back To All Question</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <form action="{{ route('questions.store') }}" method="post">
 @csrf
                    <div class="form-group">
                     <label for="question-title">Question Title</label>
@@ -39,11 +22,3 @@
                     <div class="form-group">
                         <button type="submit" class="btn btn-outline-primary btn-lg">{{ $buttonText }}</button>
                         </div>
-                        </form>                   
-                        </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
