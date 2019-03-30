@@ -15,18 +15,16 @@
                 </div>
                 <div class="card-body">
                     <form action="{{ route('questions.store') }}" method="post">
-                        @include ("questions._form", ['buttonText' => "Ask Question"])
-                        @csrf
+@csrf
                    <div class="form-group">
                     <label for="question-title">Question Title</label>
-                    <input type="text" name="title" value="{{ old('title') }}" id="question-title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}">
+                    <input type="text" name="title" value="{{ old('title', $question->title) }}" id="question-title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}">
 
                     @if ($errors->has('title'))
                     <div class="invalid-feedback">
                         <strong>{{ $errors->first('title') }}</strong>
                     </div>
                     @endif
-
                 </div>
                 <div class="form-group">
                     <label for="question-body">Explain you question</label>
@@ -37,10 +35,9 @@
                         <strong>{{ $errors->first('body') }}</strong>
                     </div>
                     @endif
-
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-outline-primary btn-lg">Ask This Question</button>
+                        <button type="submit" class="btn btn-outline-primary btn-lg">{{ $buttonText }}</button>
                         </div>
                         </form>                   
                         </div>
