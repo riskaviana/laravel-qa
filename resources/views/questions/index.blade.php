@@ -23,7 +23,7 @@
                                 <strong>{{ $question->votes }}</strong> {{ str_plural('vote', $question->votes) }}
                             </div>
                             <div class="status {{ $question->status }}">
-                                <strong>{{ $question->answers_count }}</strong> {{ str_plural('answer', $question->answers) }}
+                                <strong>{{ $question->answers_count }}</strong> {{ str_plural('answer', $question->answers_count) }}
                             </div>
                             <div class="view">
                                 {{ $question->views . " " . str_plural('view', $question->views) }}
@@ -43,7 +43,7 @@
                                 @csrf
                                 <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure?')">Delete</button>
                             </form>
-                            @endif
+                            @endcan
                             </div>
                         </div>
                             <p class="lead">
