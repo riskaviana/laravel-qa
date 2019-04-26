@@ -8,6 +8,7 @@ trait VotableTrait
     	return $this->morphToMany(User::class, 'votable');
     }
 
+
     public function upVotes()
     {
     	return $this->votes()->wherePivot('vote', 1);
